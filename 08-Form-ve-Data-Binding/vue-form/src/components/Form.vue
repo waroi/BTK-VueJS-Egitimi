@@ -29,9 +29,10 @@
     <hr>
     <h3>Öğrenciler</h3>
     <input type="text" v-model="student" @keyup.alt="addStudent">
-    <div v-for="s in students" :key="s">
-      <span @click="deleteStudent(s)">{{s}}</span>
-    </div> <br> <br>
+    <div v-for="student in students" :key="student">
+      <span @click="deleteStudent(student)">{{student}}</span>
+    </div>
+    <br>
     <button>Gönder</button>
   </form>
 </template>
@@ -42,7 +43,7 @@ export default {
     return {
       text:'Bir metin yazın',
       framework: 'Framework Seçin',
-      checked:false,
+      checked: false,
       frameworks: [],
       student: '',
       students: []
@@ -58,7 +59,7 @@ export default {
       }
     },
     deleteStudent(student){
-      this.students=this.students.filter(item => student !== item)
+      this.students = this.students.filter(item => student !== item)
     },
     sendData(){
       console.log("Veriler Gönderildi")
